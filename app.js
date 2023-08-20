@@ -4,8 +4,8 @@ import UserController from "./users/routes.js";
 import session from "express-session";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import axios from 'axios'; /*ca*/
-import RestaurantLikesRoutes from "./restaurantLikes/routes.js"; /*ca*/
+import axios from 'axios';  
+import RestaurantLikesRoutes from "./restaurantLikes/routes.js";  
 
 dotenv.config();
 
