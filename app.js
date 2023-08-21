@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import axios from 'axios';  
 import RestaurantLikesRoutes from "./restaurantLikes/routes.js";  
+import RestaurantReviewsRoutes from "./restaurantReviews/routes.js";  
 
 dotenv.config();
 
@@ -87,5 +88,6 @@ app.use(express.json());
 
 UserController(app);
 RestaurantLikesRoutes(app);
+RestaurantReviewsRoutes(app);
 
 app.listen(process.env.PORT || 4000);
