@@ -1,24 +1,20 @@
 import express from "express";
 import cors from "cors";
 import UserController from "./users/routes.js";
+import SessionController from "./session/routes.js";
 import session from "express-session";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import axios from 'axios';  
 import RestaurantLikesRoutes from "./restaurantLikes/routes.js";  
 import RestaurantReviewsRoutes from "./restaurantReviews/routes.js";  
+import FollowsRoutes from "./follows/routes.js";
 
 dotenv.config();
 
 mongoose.connect(
   process.env.DATA_DB || "mongodb://127.0.0.1:27017/project"
 )
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((error) => {
-  console.error('Error connecting to MongoDB:', error);
-});
 
 const app = express();
 app.use(
@@ -89,5 +85,7 @@ app.use(express.json());
 UserController(app);
 RestaurantLikesRoutes(app);
 RestaurantReviewsRoutes(app);
+SessionController(app);
+FollowsRoutes(app);
 
 app.listen(process.env.PORT || 4000);

@@ -12,7 +12,10 @@ const userSchema = new mongoose.Schema(
       enum: ["user", "admin", "owner"],
     },
     dateOfHire: { type: Date, default: Date.now() },
-    avatar: String,
+    avatar : String,
+    canSeeFollowers: Boolean,
+    canSeeReviews: Boolean,
+    canFollow: Boolean,
   },
   { collection: "users" }
 );
