@@ -10,3 +10,5 @@ export const getReviewsForUser = (userId) =>
   restaurantReviewsModel.find({ user: userId }).populate("restaurant", "name");
 export const getReviewsForRestaurant = (restaurantId) =>
   restaurantReviewsModel.find({ restaurantId }).populate("user");
+  export const getAllReviewsForRestaurant = () =>
+  restaurantReviewsModel.find();

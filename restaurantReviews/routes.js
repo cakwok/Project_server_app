@@ -44,6 +44,15 @@ function RestaurantReviewsRoutes(app) {
     const reviews = await reviewsDao.getReviewsForRestaurant(restaurantId);
     res.json(reviews);
   };
+
+  const getAllReviewsForRestaurant = async (req, res) => {
+     
+    const reviews = await reviewsDao.getAllReviewsForRestaurant();
+    console.log("reviews", reviews);
+    res.json(reviews);
+  };
+
+  app.get("/api/restaurants/reviews", getAllReviewsForRestaurant);
   app.get("/api/restaurants/:restaurantId/reviews", getReviewsForRestaurant);
   app.get("/api/users/:userId/reviews", getReviewsForUser);
   app.post("/api/restaurants/:restaurantId/reviews", userReviewsRestaurant);
